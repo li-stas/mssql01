@@ -1,15 +1,8 @@
 package com.lista;
 
-
 import java.sql.*;
 
-
-/**
- * Hello world!
- *
- */
-public class App 
-{
+public class AppPrTroWH {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
@@ -19,8 +12,6 @@ public class App
         String user ="1C_DB";
         String password="TC73dfa0a8!";
 
-        //String parDate = "2020-02-19";       // $paramDate = date('2018-11-21');
-        String parDate = "19-02-2020";       // $paramDate = date('2018-11-21');
         String passwdTC = "TC164500d0!";
 
         //Connect to  MSSQL
@@ -30,9 +21,8 @@ public class App
                 + ";password=TC73dfa0a8!";
 
         try (Connection con = DriverManager.getConnection(connectionUrl);
-             CallableStatement cstmt = con.prepareCall("{call SalesWeb.dbo.orders(?,?)}"); ) {
-            cstmt.setString(1, parDate);
-            cstmt.setString(2, passwdTC);
+             CallableStatement cstmt = con.prepareCall("{call SalesWeb.dbo.prTroWH(?)}"); ) {
+            cstmt.setString(1, passwdTC);
             cstmt.execute();
 
             ResultSet rs = cstmt.getResultSet();
