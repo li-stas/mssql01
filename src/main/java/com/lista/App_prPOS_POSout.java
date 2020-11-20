@@ -1,39 +1,31 @@
 package com.lista;
 
-
 import java.sql.*;
 
-
-/**
- * Hello world!
- *
- */
-public class AppOrders
-{
-    public static void main(String[] args)
+public class App_prPOS_POSout {
+    public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-
         // Create a variable for the connection string.
 
         String server = "85.223.140.88\\SalesWeb:8084";
         String user ="1C_DB";
         String password="TC73dfa0a8!";
 
-        //String parDate = "2020-02-19";       // $paramDate = date('2018-11-21');
-        String parDate = "29-10-2020";       // $paramDate = date('2018-11-21');
         String passwdTC = "TC164500d0!";
 
         //Connect to  MSSQL
         String connectionUrl = "jdbc:sqlserver://"
-                + "salesweb.obolon.com\\SalesWeb:8084" //+ "85.223.140.88\\SalesWeb:8084"
-                + ";user=1C_DB"
-                + ";password=TC73dfa0a8!";
+                + "salesweb.obolon.com\\SalesWeb:8084"
+                + ";user=" + "0052"
+
+
+                + ";password=" + "TC164500d0!";
+
 
         try (Connection con = DriverManager.getConnection(connectionUrl);
-             CallableStatement cstmt = con.prepareCall("{call SalesWeb.dbo.orders(?,?)}"); ) {
-            cstmt.setString(1, parDate);
-            cstmt.setString(2, passwdTC);
+            CallableStatement cstmt = con.prepareCall("{call SalesWeb.dbo.prPOS_POSout(?)}"); ) {
+            cstmt.setString(1, passwdTC);
             cstmt.execute();
 
             ResultSet rs = cstmt.getResultSet();
