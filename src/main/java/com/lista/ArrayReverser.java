@@ -5,7 +5,6 @@ public class ArrayReverser {
          /*
         Input:  {"Don't", "worry", ",", "be", "happy", "!"}
         Output: {"!yppa", "heb,y", "r", "ro", "wt'no", "D"}
-
         */
         int nLenA = a.length;
         String[] aOut = new String[nLenA];
